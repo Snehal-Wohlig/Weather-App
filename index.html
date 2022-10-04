@@ -3,7 +3,7 @@
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
    <style>
@@ -104,10 +104,10 @@
       }
 
       .location {
-        margin-top: 1.5rem;
+        margin-top: 1rem;
         text-align: center;
         font-weight: 800;
-        font-size: 3rem;
+        font-size: 2rem;
         font-weight:500
       }
 
@@ -128,8 +128,8 @@
         text-align: center;
         margin-top: 0.5rem;
         color: #57606f;
-        font-size: 1.1rem;
-        font-weight: 300;
+        font-size: 1.0rem;
+        font-weight: 400;
         text-transform: uppercase;
       }
 
@@ -142,7 +142,7 @@
       .tempmin_max {
         text-align: center;
         margin-top: 0.3rem;
-        font-weight: 300;
+        font-weight: 400;
         font-size: 1.2rem;
         color: #57606f;
       }
@@ -152,7 +152,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 3em;
+        font-size: 3rem;
       }
 
       #weathercon .fas {
@@ -162,7 +162,7 @@
 
       @keyframes fas-anime {
         from {
-          transform: scale(2.0);
+          transform: scale(1.1);
         }
         to {
           transform: scale(1.8);
@@ -223,5 +223,46 @@
                   
       </div>
    </div>
+   <script>
+    const currentDate =document.getElementById("date")
+    let weathercon = document.getElementById("weathercon")
+    
+    const tempStatus ="Clouds";
+
+    let getCurrentDay = () => {
+      const weekday = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];      
+      let currentTime = new Date();
+      let day=weekday[currentTime.getDay()]
+      return day
+    };
+    let getCurrentTime=() => {
+      const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+      let now =new Date();
+      let date = now.getDate();
+      let month = months[now.getMonth()+1] ;
+      let year =now.getFullYear();
+       
+      
+      let hours =now.getHours();
+      let minute=now.getMinutes();
+
+      let periods="AM";
+
+      if(hours >11){
+        periods="PM";
+        if(hours > 12) hours -= 12 ;
+        
+      }
+      if(minute<10){
+        minute ="0" + minute;
+      }
+      return `${date} ${month} ${year} | ${hours}:${minute} ${periods}`
+    };
+    currentDate.innerHTML = getCurrentDay() +  " | "  + getCurrentTime()
+   </script>
 </body>
 </html>
+
+
+
+
