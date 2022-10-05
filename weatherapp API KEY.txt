@@ -1,0 +1,6 @@
+https://api.openweathermap.org/data/2.5/weather?q=Mumbai&appid=66bf36e593f6141fa9e35e032a57b977
+
+Login:-wohligsnehal@gmail.com
+password:-Snehal@123
+
+
